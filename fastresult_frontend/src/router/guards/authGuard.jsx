@@ -1,12 +1,16 @@
 import { Navigate } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../../hooks/useAuth'
 
-export const ProtectedRoute = ({ children, requiredRole = null }) => {
-  const { isAuthenticated } = useAuth()
-  
-  if (!isAuthenticated) {
+/**
+ * AuthGuard: Basic authentication check
+ * Use this for pages that just need to verify user is logged in
+ */
+export default function AuthGuard({ children }) {
+  const { isAuthenticated, user } = useAuth()
+
+  if (!isAuthenticated || !user) {
     return <Navigate to="/login" replace />
   }
-  
+
   return children
 }

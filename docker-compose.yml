@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: fastresult
+      POSTGRES_USER: fastresult
+      POSTGRES_PASSWORD: fastresult123
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./fastresult_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./fastresult_backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://fastresult:fastresult123@db:5432/fastresult
+      CELERY_BROKER_URL: redis://redis:6379/0
+      DEBUG: "True"
+    depends_on:
+      - db
+      - redis
+
+  frontend:
+    build: ./fastresult_frontend
+    command: npm run dev
+    volumes:
+      - ./fastresult_frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:8000/api/v1
+
+volumes:
+  postgres_data:

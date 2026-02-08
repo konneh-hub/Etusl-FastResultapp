@@ -1,9 +1,16 @@
-import { useRole } from './useRole'
+import { useAuth } from './useAuth'
 
+/**
+ * usePermissions: Derive permissions from user role and permissions array
+ * Uses both hardcoded role-based permissions and user.permissions from backend
+ */
 export const usePermissions = () => {
-  const role = useRole()
+  const { user } = useAuth()
+  const role = user?.role
+  const userPermissions = user?.permissions || []
   
-  const permissions = {
+  // Hardcoded role-based permissions as fallback
+  const roleBasedPermissions = {
     canViewResults: ['student', 'lecturer', 'dean', 'hod', 'exam_officer', 'university_admin'].includes(role),
     canEditResults: ['lecturer', 'exam_officer', 'university_admin'].includes(role),
     canApproveResults: ['dean', 'hod', 'exam_officer', 'university_admin'].includes(role),
@@ -12,5 +19,10 @@ export const usePermissions = () => {
     canManageAcademics: ['university_admin', 'hod'].includes(role)
   }
   
-  return permissions
+  // Helper to check if user has a specific permission string
+  const hasPermission = (permissionString) => {
+    return userPermissions.includes(permissionString)
+  }
+  
+  return { ...roleBasedPermissions, hasPermission, userPermissions }
 }

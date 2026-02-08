@@ -8,12 +8,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
-# Development-specific middleware
-MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+# Development-specific middleware (debug_toolbar optional)
+# MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
-INSTALLED_APPS += [
-    'debug_toolbar',
-]
+# INSTALLED_APPS += [
+#     'debug_toolbar',
+# ]
 
 INTERNAL_IPS = ['127.0.0.1', 'localhost']
 

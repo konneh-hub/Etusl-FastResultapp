@@ -1,4 +1,5 @@
 ROLE_CHOICES = [
+    ('system_admin', 'System Administrator'),
     ('university_admin', 'University Administrator'),
     ('dean', 'Dean'),
     ('hod', 'Head of Department'),

@@ -1,6 +1,37 @@
+import axios from 'axios';
+
+const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000/api';
+
+const api = axios.create({
+  baseURL: API_BASE,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Attach auth token if present
+api.interceptors.request.use(
+  (config) => {
+    try {
+      const token = localStorage.getItem('authToken');
+      if (token) config.headers.Authorization = `Bearer ${token}`;
+    } catch (e) {
+      // ignore localStorage errors in non-browser envs
+    }
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => Promise.reject(error),
+);
+
+export default api;
 import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:8000/api/v1'
+const API_BASE_URL = process.env.REACT_APP_API_BASE || 'http://localhost:8000/api/v1'
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -11,9 +42,9 @@ const apiClient = axios.create({
 
 // Add token to requests
 apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('access_token') || localStorage.getItem('token')
   if (token) {
-    config.headers.Authorization = `Token ${token}`
+    config.headers.Authorization = `Bearer ${token}`
   }
   return config
 }, (error) => {
@@ -25,6 +56,7 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
+      localStorage.removeItem('access_token')
       localStorage.removeItem('token')
       window.location.href = '/login'
     }

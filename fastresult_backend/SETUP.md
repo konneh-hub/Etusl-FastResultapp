@@ -73,8 +73,9 @@ SQLite database file: `db.sqlite3`
 ## API Endpoints Overview
 
 ### Authentication
-- `POST /api/v1/auth/register/` - Register new user
-- `POST /api/v1/auth/login/` - Login user
+- `POST /api/v1/auth/claim-account/` - Activate preloaded account
+- `POST /api/v1/auth/bulk-preload/` - Bulk preload users (admin only)
+- `POST /api/v1/auth/login/` - Email-based login (requires active + verified)
 - `POST /api/v1/auth/users/logout/` - Logout user
 - `GET /api/v1/auth/users/me/` - Get current user
 

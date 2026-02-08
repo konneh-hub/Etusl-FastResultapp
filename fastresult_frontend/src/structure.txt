@@ -1,0 +1,99 @@
+fastresult_frontend/src/
+├─ api/                    # API client wrappers (deprecated path; use services/)
+├─ assets/
+├─ components/             # Shared UI components
+│  ├─ Table/
+│  ├─ Form/
+│  ├─ Modal/
+│  ├─ Badge/
+│  ├─ Spinner/
+│  ├─ ChartPlaceholder/
+│  └─ ResultGrid/          # Spreadsheet-style result entry
+├─ layout/
+│  ├─ DashboardLayout/
+│  ├─ Sidebar/
+│  ├─ Header/
+│  ├─ Breadcrumbs/
+│  └─ UserMenu/
+├─ hooks/
+│  ├─ useAuth.ts
+│  ├─ useTable.ts
+│  └─ useNotifications.ts
+├─ pages/
+│  ├─ admin/
+│  │  ├─ Dashboard/
+│  │  ├─ Users/
+│  │  ├─ ApprovalQueue/
+│  │  ├─ Faculties/
+│  │  ├─ Departments/
+│  │  ├─ Programs/
+│  │  ├─ Courses/
+│  │  ├─ Subjects/
+│  │  ├─ AcademicYear/
+│  │  ├─ GradingScale/
+│  │  ├─ CreditRules/
+│  │  ├─ ResultControl/
+│  │  ├─ Reports/
+│  │  ├─ GpaAnalytics/
+│  │  ├─ Graduation/
+│  │  ├─ Notifications/
+│  │  └─ Profile/
+│  ├─ dean/
+│  │  ├─ Dashboard/
+│  │  ├─ Departments/
+│  │  ├─ Reports/
+│  │  ├─ Analytics/
+│  │  └─ Profile/
+│  ├─ hod/
+│  │  ├─ Dashboard/
+│  │  ├─ Assignments/
+│  │  ├─ Students/
+│  │  ├─ Courses/
+│  │  ├─ Lecturers/
+│  │  ├─ ResultsReview/
+│  │  └─ Profile/
+│  ├─ exam-officer/
+│  │  ├─ VerificationQueue/
+│  │  ├─ BulkApproval/
+│  │  ├─ Scheduling/
+│  │  ├─ Calendar/
+│  │  ├─ TimetableBuilder/
+│  │  ├─ Rooms/
+│  │  ├─ Invigilators/
+│  │  ├─ Reports/
+│  │  └─ Profile/
+│  ├─ lecturer/
+│  │  ├─ MyCourses/
+│  │  ├─ CourseDetails/
+│  │  ├─ EnrolledStudents/
+│  │  ├─ ResultEntry/
+│  │  ├─ Submissions/
+│  │  ├─ Reports/
+│  │  └─ Profile/
+│  └─ student/
+│     ├─ Dashboard/
+│     ├─ Results/
+│     ├─ Transcript/
+│     ├─ Courses/
+│     ├─ Documents/
+│     ├─ Notifications/
+│     └─ Profile/
+├─ routes/
+│  └─ index.tsx           # route declarations and ProtectedRoute
+├─ services/              # API service layer
+│  ├─ apiClient.ts
+│  ├─ auth.service.ts
+│  ├─ admin.service.ts
+│  ├─ dean.service.ts
+│  ├─ hod.service.ts
+│  ├─ examOfficer.service.ts
+│  ├─ lecturer.service.ts
+│  └─ student.service.ts
+├─ stores/                # global state (optional, e.g., Zustand/Redux)
+├─ styles/
+└─ utils/
+   └─ validators/
+
+Notes:
+- If a page already exists in the repo, update its directory instead of creating duplicates.
+- University Admin pages must only manage the current university scope; do not add cross-university features.

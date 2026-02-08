@@ -1,0 +1,49 @@
+.settings {
+  padding: 20px;
+}
+
+.settings .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.settings h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.settings-view {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.settings-group {
+  margin-bottom: 30px;
+}
+
+.settings-group h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.setting-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.setting-item label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.setting-item p {
+  margin: 0;
+  padding: 8px;
+  background: white;
+  border-radius: 4px;
+}

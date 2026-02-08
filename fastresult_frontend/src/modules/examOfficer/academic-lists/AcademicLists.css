@@ -1,0 +1,18 @@
+.academic-lists {
+  padding: 20px;
+}
+
+.academic-lists h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.list-selector {
+  margin-bottom: 20px;
+}
+
+.list-selector select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}

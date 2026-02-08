@@ -1,0 +1,32 @@
+.academic-structure {
+  padding: 20px;
+}
+
+.academic-structure .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.academic-structure h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.type-selector {
+  margin-bottom: 20px;
+}
+
+.type-selector select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.form-container {
+  background: #f5f5f5;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}

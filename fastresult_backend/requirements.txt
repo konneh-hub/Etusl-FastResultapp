@@ -1,0 +1,31 @@
+# FastResult Backend - Combined Requirements
+# For development: pip install -r requirements.txt
+# For production: pip install -r requirements/prod.txt
+
+# Base requirements
+Django==4.2.7
+djangorestframework==3.14.0
+django-cors-headers==4.3.0
+python-dotenv==1.0.0
+django-filter==23.4
+django-extensions==3.2.3
+drf-spectacular==0.26.5
+django-health-check==3.17.0
+
+# Database and ORM
+psycopg2-binary==2.9.9
+
+# Static files and storage
+whitenoise==6.6.0
+gunicorn==21.2.0
+
+# Development tools
+pytest==7.4.3
+pytest-django==4.7.0
+pytest-cov==4.1.0
+black==23.12.0
+flake8==6.1.0
+isort==13.2.0
+django-debug-toolbar==4.2.0
+factory-boy==3.3.0
+faker==21.0.0

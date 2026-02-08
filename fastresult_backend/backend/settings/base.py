@@ -14,7 +14,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dev-key-change-in-pro
 
 # Application definition
 INSTALLED_APPS = [
-    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,28 +27,26 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'drf_spectacular',
-    'django_extensions',
-    'health_check',
     
     # Local apps
     'core',
     'accounts',
     'universities',
-    'academics',
-    'students',
-    'lecturers',
-    'exams',
-    'results',
-    'approvals',
-    'reports',
-    'notifications',
-    'files',
-    'audit',
+    'systemadmin',
+    # 'academics',
+    # 'students',
+    # 'lecturers',
+    # 'exams',
+    # 'results',
+    # 'approvals',
+    # 'reports',
+    # 'notifications',
+    # 'files',
+    # 'audit',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -114,7 +111,6 @@ USE_TZ = True
 # Static files
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files
 MEDIA_URL = '/media/'

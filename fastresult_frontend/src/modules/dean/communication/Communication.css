@@ -1,0 +1,22 @@
+.dean-communication {
+  padding: 20px;
+}
+
+.dean-communication .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dean-communication h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.message-form {
+  background: #f5f5f5;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
